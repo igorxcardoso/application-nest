@@ -28,3 +28,9 @@
 **Instalação para haver a comunincação com dotenv**
 *npm i --save @nestjs/config*
 
+
+#### nestjs-query
+1. yarn add @nestjs-query/core @nestjs/common class-transformer
+2. yarn add @nestjs-query/query-graphql @nestjs/common @nestjs/graphql graphql graphql-subscriptions class-transformer class-validator dataloader
+3. yarn add @nestjs-query/query-typeorm @nestjs/common @nestjs/typeorm class-transformer typeorm
+
