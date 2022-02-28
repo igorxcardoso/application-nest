@@ -1,6 +1,6 @@
 import { UpdateStudentInput } from './dto/update-student.input';
 import { CreateStudentInput } from './dto/create-student.input';
-import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
+import { NestjsQueryGraphQLModule, PagingStrategies } from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { StudentDTO } from './dto/student.dto';
@@ -16,8 +16,8 @@ import { Student } from './entities/student.entity';
         EntityClass: Student,
         CreateDTOClass: CreateStudentInput,
         UpdateDTOClass: UpdateStudentInput,
-        enableSubscriptions: true,
         enableTotalCount: true,
+        pagingStrategy: PagingStrategies.OFFSET
       }],
     }),
   ],
