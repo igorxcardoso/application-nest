@@ -36,6 +36,27 @@ To start the project just type the following command:
 yarn start:dev
 ```
 
+## Collection
+In collection folder there is a .json file with the requests. List request example with pagination:
+```gql
+{
+    students(
+        paging: {
+          offset: 1
+          limit: 4
+        }
+    ){
+        nodes{
+            id
+            key
+            name
+        }
+        totalCount
+    }
+}
+```
+
+
 ## Author
 * **Igor Cardoso** - *Initial work* - [igorxcardoso](https://github.com/igorxcardoso)
 
