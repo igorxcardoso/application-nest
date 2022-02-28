@@ -27,7 +27,13 @@ Note: These are default database settings.
 #### Start database
 To start the database (PostgreSQL), simply navigate to the api directory and type the following command, if you have already installed docker:
 ```
-docker-compose up
+docker-compose -f postgresql.yml up
+```
+
+### RabbitMQ
+To start RabbitMQ type the following command
+```
+docker-compose -f rabbitmq.yml up
 ```
 
 ## Run project
