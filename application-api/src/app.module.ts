@@ -1,3 +1,4 @@
+import { AppController } from './app.controller';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -16,7 +17,7 @@ import { StudentsModule } from './modules/students/students.module';
     TypeOrmModule.forRoot(),
     StudentsModule
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
