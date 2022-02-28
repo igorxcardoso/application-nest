@@ -4,6 +4,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AppService } from './app.service';
+import { StudentsModule } from './modules/students/students.module';
 
 @Module({
   imports: [
@@ -12,7 +13,8 @@ import { AppService } from './app.service';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
     }),
-    TypeOrmModule.forRoot()
+    TypeOrmModule.forRoot(),
+    StudentsModule
   ],
   controllers: [],
   providers: [AppService],
