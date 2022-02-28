@@ -38,7 +38,7 @@ yarn start:dev
 
 ## Collection
 In collection folder there is a .json file with the requests. List request example with pagination:
-```json
+```gql
 {
     students(
         paging: {
