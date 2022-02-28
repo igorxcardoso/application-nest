@@ -16,7 +16,8 @@ import { Student } from './entities/student.entity';
         EntityClass: Student,
         CreateDTOClass: CreateStudentInput,
         UpdateDTOClass: UpdateStudentInput,
-        enableSubscriptions: true
+        enableSubscriptions: true,
+        enableTotalCount: true,
       }],
     }),
   ],
