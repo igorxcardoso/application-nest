@@ -7,7 +7,9 @@ Inside the api directory type the following command:
 yarn install
 ```
 
-### .env configuration
+### Database
+
+#### .env configuration
 Create a file called .env with the following settings:
 ```
 TYPEORM_CONNECTION = postgres
@@ -22,7 +24,7 @@ TYPEORM_ENTITIES = entity/*.js,**/modules/**/entities/*.js
 ```
 Note: These are default database settings.
 
-### Database
+#### Start database
 To start the database (PostgreSQL), simply navigate to the api directory and type the following command, if you have already installed docker:
 ```
 docker-compose up
