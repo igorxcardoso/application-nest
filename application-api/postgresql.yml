@@ -3,6 +3,7 @@ version: "3"
 services:
   postgres:
     image: "postgres:11.5"
+    container_name: postgres_application_nest
     environment:
       - "POSTGRES_USER=test"
       - "POSTGRES_DB=test"
