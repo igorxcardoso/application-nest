@@ -17,6 +17,31 @@ input CreateStudentInput {
   name: String!
 }
 
+input DateFieldComparison {
+  between: DateFieldComparisonBetween
+  eq: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  is: Boolean
+  isNot: Boolean
+  lt: DateTime
+  lte: DateTime
+  neq: DateTime
+  notBetween: DateFieldComparisonBetween
+  notIn: [DateTime!]
+}
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type DeleteManyResponse {
   """The number of records deleted."""
   deletedCount: Int!
@@ -104,14 +129,21 @@ input StringFieldComparison {
 }
 
 type Student {
+  createAt: DateTime!
+  deleteAt: DateTime!
   id: String!
   key: String!
   name: String!
+  updateAt: DateTime!
 }
 
 type StudentAggregateGroupBy {
+  createAt: DateTime
+  deleteAt: DateTime
+  id: String
   key: String
   name: String
+  updateAt: DateTime
 }
 
 type StudentConnection {
@@ -126,38 +158,61 @@ type StudentConnection {
 }
 
 type StudentCountAggregate {
+  createAt: Int
+  deleteAt: Int
+  id: Int
   key: Int
   name: Int
+  updateAt: Int
 }
 
 input StudentDeleteFilter {
   and: [StudentDeleteFilter!]
+  createAt: DateFieldComparison
+  deleteAt: DateFieldComparison
+  id: StringFieldComparison
   key: StringFieldComparison
   name: StringFieldComparison
   or: [StudentDeleteFilter!]
+  updateAt: DateFieldComparison
 }
 
 type StudentDeleteResponse {
+  createAt: DateTime
+  deleteAt: DateTime
   id: String
   key: String
   name: String
+  updateAt: DateTime
 }
 
 input StudentFilter {
   and: [StudentFilter!]
+  createAt: DateFieldComparison
+  deleteAt: DateFieldComparison
+  id: StringFieldComparison
   key: StringFieldComparison
   name: StringFieldComparison
   or: [StudentFilter!]
+  updateAt: DateFieldComparison
 }
 
 type StudentMaxAggregate {
+  createAt: DateTime
+  deleteAt: DateTime
+  id: String
   key: String
   name: String
+  updateAt: DateTime
 }
 
 type StudentMinAggregate {
+  createAt: DateTime
+  deleteAt: DateTime
+  id: String
   key: String
   name: String
+  updateAt: DateTime
 }
 
 input StudentSort {
@@ -167,15 +222,23 @@ input StudentSort {
 }
 
 enum StudentSortFields {
+  createAt
+  deleteAt
+  id
   key
   name
+  updateAt
 }
 
 input StudentUpdateFilter {
   and: [StudentUpdateFilter!]
+  createAt: DateFieldComparison
+  deleteAt: DateFieldComparison
+  id: StringFieldComparison
   key: StringFieldComparison
   name: StringFieldComparison
   or: [StudentUpdateFilter!]
+  updateAt: DateFieldComparison
 }
 
 type UpdateManyResponse {
