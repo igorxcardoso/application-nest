@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AppService } from './app.service';
 import { StudentsModule } from './modules/students/students.module';
+import { DisciplinesModule } from './modules/disciplines/disciplines.module';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { StudentsModule } from './modules/students/students.module';
       sortSchema: true,
     }),
     TypeOrmModule.forRoot(),
-    StudentsModule
+    StudentsModule,
+    DisciplinesModule
   ],
   controllers: [AppController],
   providers: [AppService],
