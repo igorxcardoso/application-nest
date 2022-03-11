@@ -6,9 +6,9 @@ input CreateDisciplineInput {
   name: String!
 }
 
-input CreateManyDisciplineDTOSInput {
+input CreateManyDisciplinesInput {
   """Array of records to create"""
-  disciplineDTOS: [CreateDisciplineInput!]!
+  disciplines: [CreateDisciplineInput!]!
 }
 
 input CreateManyStudentsInput {
@@ -16,9 +16,9 @@ input CreateManyStudentsInput {
   students: [CreateStudentInput!]!
 }
 
-input CreateOneDisciplineDTOInput {
+input CreateOneDisciplineInput {
   """The record to create"""
-  disciplineDTO: CreateDisciplineInput!
+  discipline: CreateDisciplineInput!
 }
 
 input CreateOneStudentInput {
@@ -56,9 +56,9 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 """
 scalar DateTime
 
-input DeleteManyDisciplineDTOSInput {
+input DeleteManyDisciplinesInput {
   """Filter to find records to delete"""
-  filter: DisciplineDTODeleteFilter!
+  filter: DisciplineDeleteFilter!
 }
 
 type DeleteManyResponse {
@@ -71,7 +71,7 @@ input DeleteManyStudentsInput {
   filter: StudentDeleteFilter!
 }
 
-input DeleteOneDisciplineDTOInput {
+input DeleteOneDisciplineInput {
   """The id of the record to delete."""
   id: ID!
 }
@@ -81,7 +81,7 @@ input DeleteOneStudentInput {
   id: ID!
 }
 
-type DisciplineDTO {
+type Discipline {
   createAt: DateTime!
   deleteAt: DateTime!
   id: String!
@@ -89,7 +89,7 @@ type DisciplineDTO {
   updateAt: DateTime!
 }
 
-type DisciplineDTOAggregateGroupBy {
+type DisciplineAggregateGroupBy {
   createAt: DateTime
   deleteAt: DateTime
   id: String
@@ -97,9 +97,9 @@ type DisciplineDTOAggregateGroupBy {
   updateAt: DateTime
 }
 
-type DisciplineDTOConnection {
+type DisciplineConnection {
   """Array of nodes."""
-  nodes: [DisciplineDTO!]!
+  nodes: [Discipline!]!
 
   """Paging information"""
   pageInfo: OffsetPageInfo!
@@ -108,7 +108,7 @@ type DisciplineDTOConnection {
   totalCount: Int!
 }
 
-type DisciplineDTOCountAggregate {
+type DisciplineCountAggregate {
   createAt: Int
   deleteAt: Int
   id: Int
@@ -116,17 +116,17 @@ type DisciplineDTOCountAggregate {
   updateAt: Int
 }
 
-input DisciplineDTODeleteFilter {
-  and: [DisciplineDTODeleteFilter!]
+input DisciplineDeleteFilter {
+  and: [DisciplineDeleteFilter!]
   createAt: DateFieldComparison
   deleteAt: DateFieldComparison
   id: StringFieldComparison
   name: StringFieldComparison
-  or: [DisciplineDTODeleteFilter!]
+  or: [DisciplineDeleteFilter!]
   updateAt: DateFieldComparison
 }
 
-type DisciplineDTODeleteResponse {
+type DisciplineDeleteResponse {
   createAt: DateTime
   deleteAt: DateTime
   id: String
@@ -134,17 +134,17 @@ type DisciplineDTODeleteResponse {
   updateAt: DateTime
 }
 
-input DisciplineDTOFilter {
-  and: [DisciplineDTOFilter!]
+input DisciplineFilter {
+  and: [DisciplineFilter!]
   createAt: DateFieldComparison
   deleteAt: DateFieldComparison
   id: StringFieldComparison
   name: StringFieldComparison
-  or: [DisciplineDTOFilter!]
+  or: [DisciplineFilter!]
   updateAt: DateFieldComparison
 }
 
-type DisciplineDTOMaxAggregate {
+type DisciplineMaxAggregate {
   createAt: DateTime
   deleteAt: DateTime
   id: String
@@ -152,7 +152,7 @@ type DisciplineDTOMaxAggregate {
   updateAt: DateTime
 }
 
-type DisciplineDTOMinAggregate {
+type DisciplineMinAggregate {
   createAt: DateTime
   deleteAt: DateTime
   id: String
@@ -160,13 +160,13 @@ type DisciplineDTOMinAggregate {
   updateAt: DateTime
 }
 
-input DisciplineDTOSort {
+input DisciplineSort {
   direction: SortDirection!
-  field: DisciplineDTOSortFields!
+  field: DisciplineSortFields!
   nulls: SortNulls
 }
 
-enum DisciplineDTOSortFields {
+enum DisciplineSortFields {
   createAt
   deleteAt
   id
@@ -174,28 +174,28 @@ enum DisciplineDTOSortFields {
   updateAt
 }
 
-input DisciplineDTOUpdateFilter {
-  and: [DisciplineDTOUpdateFilter!]
+input DisciplineUpdateFilter {
+  and: [DisciplineUpdateFilter!]
   createAt: DateFieldComparison
   deleteAt: DateFieldComparison
   id: StringFieldComparison
   name: StringFieldComparison
-  or: [DisciplineDTOUpdateFilter!]
+  or: [DisciplineUpdateFilter!]
   updateAt: DateFieldComparison
 }
 
 type Mutation {
-  createManyDisciplineDTOS(input: CreateManyDisciplineDTOSInput!): [DisciplineDTO!]!
+  createManyDisciplines(input: CreateManyDisciplinesInput!): [Discipline!]!
   createManyStudents(input: CreateManyStudentsInput!): [Student!]!
-  createOneDisciplineDTO(input: CreateOneDisciplineDTOInput!): DisciplineDTO!
+  createOneDiscipline(input: CreateOneDisciplineInput!): Discipline!
   createOneStudent(input: CreateOneStudentInput!): Student!
-  deleteManyDisciplineDTOS(input: DeleteManyDisciplineDTOSInput!): DeleteManyResponse!
+  deleteManyDisciplines(input: DeleteManyDisciplinesInput!): DeleteManyResponse!
   deleteManyStudents(input: DeleteManyStudentsInput!): DeleteManyResponse!
-  deleteOneDisciplineDTO(input: DeleteOneDisciplineDTOInput!): DisciplineDTODeleteResponse!
+  deleteOneDiscipline(input: DeleteOneDisciplineInput!): DisciplineDeleteResponse!
   deleteOneStudent(input: DeleteOneStudentInput!): StudentDeleteResponse!
-  updateManyDisciplineDTOS(input: UpdateManyDisciplineDTOSInput!): UpdateManyResponse!
+  updateManyDisciplines(input: UpdateManyDisciplinesInput!): UpdateManyResponse!
   updateManyStudents(input: UpdateManyStudentsInput!): UpdateManyResponse!
-  updateOneDisciplineDTO(input: UpdateOneDisciplineDTOInput!): DisciplineDTO!
+  updateOneDiscipline(input: UpdateOneDisciplineInput!): Discipline!
   updateOneStudent(input: UpdateOneStudentInput!): Student!
 }
 
@@ -216,20 +216,20 @@ input OffsetPaging {
 }
 
 type Query {
-  disciplineDTO(
+  discipline(
     """The id of the record to find."""
     id: ID!
-  ): DisciplineDTO
-  disciplineDTOS(
+  ): Discipline
+  disciplines(
     """Specify to filter the records returned."""
-    filter: DisciplineDTOFilter = {}
+    filter: DisciplineFilter = {}
 
     """Limit or page results."""
     paging: OffsetPaging = {limit: 10}
 
     """Specify to sort results."""
-    sorting: [DisciplineDTOSort!] = []
-  ): DisciplineDTOConnection!
+    sorting: [DisciplineSort!] = []
+  ): DisciplineConnection!
   student(
     """The id of the record to find."""
     id: ID!
@@ -389,13 +389,13 @@ input StudentUpdateFilter {
 }
 
 input UpdateDisciplineInput {
-  id: ID!
+  id: ID
   name: String
 }
 
-input UpdateManyDisciplineDTOSInput {
+input UpdateManyDisciplinesInput {
   """Filter used to find fields to update"""
-  filter: DisciplineDTOUpdateFilter!
+  filter: DisciplineUpdateFilter!
 
   """The update to apply to all records found using the filter"""
   update: UpdateDisciplineInput!
@@ -414,7 +414,7 @@ input UpdateManyStudentsInput {
   update: UpdateStudentInput!
 }
 
-input UpdateOneDisciplineDTOInput {
+input UpdateOneDisciplineInput {
   """The id of the record to update"""
   id: ID!
 

@@ -3,6 +3,9 @@ import { InputType, Field, Int, PartialType, ID } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateDisciplineInput extends PartialType(CreateDisciplineInput) {
-  @Field(() => ID)
+  @Field(() => ID, {nullable: true})
   id?: string;
 }
+
+
+// O PartialType vai transformar todos os campos de CreateDisciplineInput como opcionais
